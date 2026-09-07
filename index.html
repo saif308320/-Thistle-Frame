@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thistle &amp; Frame Photography — Edinburgh Wedding &amp; Event Photographer</title>
+<meta name="description" content="Cinematic, editorial wedding, portrait and corporate event photography in Edinburgh and across the Lothians.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b0b0d'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23c9a24b' text-anchor='middle'%3ET%26F%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0b0d;
+    --ink-soft:#141417;
+    --ink-elev:#1b1b1f;
+    --gold:#c9a24b;
+    --gold-soft:#e3c98a;
+    --cream:#f4ecdf;
+    --cream-dim:#cfc6b8;
+    --line:rgba(201,162,75,0.22);
+    --shadow:0 30px 60px -25px rgba(0,0,0,0.7);
+    --serif:'Cormorant Garamond', serif;
+    --sans:'Jost', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:var(--sans);
+    font-weight:300;
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:0.01em;color:var(--cream);}
+  .container{max-width:1200px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:var(--sans);
+    text-transform:uppercase;
+    letter-spacing:0.32em;
+    font-size:0.72rem;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .section{padding:130px 0;position:relative;}
+  .section-tight{padding:90px 0;}
+  .section-head{max-width:640px;margin:0 auto 60px;text-align:center;}
+  .section-head h2{font-size:clamp(2.1rem,4vw,3.1rem);margin-top:14px;}
+  .section-head p{color:var(--cream-dim);margin-top:16px;font-size:1.02rem;}
+  .divider{width:60px;height:1px;background:var(--gold);margin:22px auto 0;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 34px;
+    border:1px solid var(--gold);
+    color:var(--cream);
+    font-size:0.78rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    background:transparent;
+    cursor:pointer;
+    transition:all .45s cubic-bezier(.2,.8,.2,1);
+    position:relative;
+    overflow:hidden;
+  }
+  .btn span{position:relative;z-index:2;}
+  .btn::before{
+    content:"";position:absolute;inset:0;background:var(--gold);
+    transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.8,.2,1);z-index:1;
+  }
+  .btn:hover::before{transform:scaleX(1);}
+  .btn:hover{color:var(--ink);}
+  .btn-solid{background:var(--gold);color:var(--ink);border:1px solid var(--gold);}
+  .btn-solid::before{background:var(--cream);}
+  .btn-solid:hover{color:var(--ink);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity .9s ease, transform .9s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  /* NAV */
+  header{
+    position:fixed;top:0;left:0;width:100%;z-index:1000;
+    padding:26px 0;
+    transition:all .4s ease;
+    background:transparent;
+  }
+  header.solid{
+    background:rgba(11,11,13,0.92);
+    backdrop-filter:blur(10px);
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 32px;}
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo-mark{
+    width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);color:var(--gold);font-size:1.05rem;letter-spacing:0.03em;
+  }
+  .logo-text{font-family:var(--serif);font-size:1.3rem;letter-spacing:0.03em;color:var(--cream);}
+  .logo-text em{color:var(--gold);font-style:normal;}
+  nav.desktop-nav{display:flex;gap:38px;}
+  nav.desktop-nav a{
+    font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--cream-dim);
+    position:relative;padding-bottom:4px;transition:color .3s ease;
+  }
+  nav.desktop-nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s ease;}
+  nav.desktop-nav a:hover{color:var(--cream);}
+  nav.desktop-nav a:hover::after{width:100%;}
+  .nav-cta{display:flex;align-items:center;gap:26px;}
+  .burger{display:none;flex-direction:column;gap:6px;cursor:pointer;background:none;border:none;z-index:1200;}
+  .burger span{width:26px;height:1px;background:var(--cream);transition:all .3s ease;}
+  .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .mobile-menu{
+    position:fixed;inset:0;background:var(--ink);z-index:1100;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;
+    transform:translateY(-100%);transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .mobile-menu.open{transform:translateY(0);}
+  .mobile-menu a{font-family:var(--serif);font-size:1.9rem;color:var(--cream);}
+  .mobile-menu .btn{margin-top:16px;}
+
+  /* HERO */
+  .hero{
+    position:relative;height:100vh;min-height:640px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;overflow:hidden;
+  }
+  .hero-slide{
+    position:absolute;inset:0;background-size:cover;background-position:center;
+    opacity:0;transition:opacity 1.8s ease;
+  }
+  .hero-slide.active{opacity:1;}
+  .hero-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(6,6,8,0.55) 0%, rgba(8,8,10,0.45) 40%, rgba(6,6,8,0.85) 100%);
+    z-index:1;
+  }
+  .hero-content{
+    position:relative;z-index:2;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    max-width:820px;padding:0 24px;
+  }
+  .hero-content .eyebrow{color:var(--gold-soft);margin-bottom:22px;}
+  .hero-content h1{
+    font-size:clamp(2.6rem, 7vw, 5.4rem);
+    line-height:1.08;
+    color:var(--cream);
+    text-wrap:balance;
+  }
+  .hero-content h1 em{color:var(--gold);font-style:italic;}
+  .hero-content p{
+    margin-top:24px;color:var(--cream-dim);font-size:clamp(1rem,1.6vw,1.2rem);
+    max-width:520px;
+  }
+  .hero-content .btn{margin-top:38px;}
+  .hero-dots{
+    position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
+    display:flex;gap:12px;z-index:2;
+  }
+  .hero-dots span{width:8px;height:8px;border-radius:50%;border:1px solid var(--gold);cursor:pointer;transition:background .3s ease;}
+  .hero-dots span.active{background:var(--gold);}
+  .scroll-cue{
+    position:absolute;bottom:38px;right:44px;z-index:2;color:var(--cream-dim);
+    font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+  }
+  .scroll-cue::after{content:"";width:1px;height:46px;background:linear-gradient(var(--gold),transparent);animation:scrollcue 2s infinite;}
+  @keyframes scrollcue{0%{opacity:1;}100%{opacity:0;}}
+
+  /* PORTFOLIO */
+  .filter-bar{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:50px;}
+  .filter-btn{
+    padding:10px 26px;border:1px solid var(--line);background:transparent;color:var(--cream-dim);
+    font-family:var(--sans);font-size:0.74rem;letter-spacing:0.18em;text-transform:uppercase;cursor:pointer;
+    transition:all .3s ease;
+  }
+  .filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);}
+  .portfolio-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+  }
+  .p-tile{
+    position:relative;overflow:hidden;aspect-ratio:4/5;cursor:pointer;
+    background:var(--ink-soft);
+  }
+  .p-tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1);}
+  .p-tile:hover img{transform:scale(1.12) rotate(1.2deg);}
+  .p-tile .tile-info{
+    position:absolute;left:0;right:0;bottom:0;padding:26px 22px;
+    background:linear-gradient(0deg, rgba(6,6,8,0.92), transparent);
+    transform:translateY(12px);opacity:0;transition:all .4s ease;
+  }
+  .p-tile:hover .tile-info{transform:translateY(0);opacity:1;}
+  .tile-info .tag{color:var(--gold);font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;}
+  .tile-info h4{font-size:1.25rem;margin-top:6px;}
+  .p-tile.hide{display:none;}
+
+  /* PRICING */
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:stretch;}
+  .price-card{
+    border:1px solid var(--line);padding:52px 38px;text-align:center;position:relative;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+    display:flex;flex-direction:column;
+  }
+  .price-card.featured{border-color:var(--gold);background:linear-gradient(180deg, rgba(201,162,75,0.08), transparent);}
+  .price-card .ribbon{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--gold);color:var(--ink);font-size:0.66rem;letter-spacing:0.2em;text-transform:uppercase;
+    padding:7px 18px;
+  }
+  .price-card h3{font-size:1.7rem;}
+  .price-card .price{font-family:var(--serif);font-size:2.6rem;color:var(--gold);margin:18px 0 6px;}
+  .price-card .price small{font-size:1rem;color:var(--cream-dim);font-family:var(--sans);}
+  .price-card p.desc{color:var(--cream-dim);font-size:0.9rem;margin-bottom:26px;}
+  .price-card ul{list-style:none;text-align:left;margin-bottom:34px;flex:1;}
+  .price-card ul li{
+    padding:11px 0;border-bottom:1px solid var(--line);font-size:0.92rem;color:var(--cream-dim);
+    display:flex;gap:10px;align-items:baseline;
+  }
+  .price-card ul li::before{content:"—";color:var(--gold);}
+
+  /* ABOUT / SPLIT */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;}
+  .split img{width:100%;height:560px;object-fit:cover;}
+  .split .eyebrow{margin-bottom:14px;display:block;}
+  .split h2{font-size:clamp(2rem,3.6vw,2.9rem);margin-bottom:20px;}
+  .split p{color:var(--cream-dim);margin-bottom:16px;}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px;}
+  .stat{text-align:left;border-top:1px solid var(--line);padding-top:16px;}
+  .stat .num{font-family:var(--serif);font-size:2.4rem;color:var(--gold);}
+  .stat .label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream-dim);}
+
+  /* AWARDS STRIP */
+  .strip{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:34px 0;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;
+  }
+  .strip .item{text-align:center;color:var(--cream-dim);font-size:0.82rem;letter-spacing:0.08em;}
+  .strip .item strong{display:block;color:var(--gold-soft);font-family:var(--serif);font-size:1.1rem;font-weight:500;margin-bottom:4px;}
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .testi-card{border:1px solid var(--line);padding:40px 34px;background:var(--ink-soft);}
+  .testi-card .stars{color:var(--gold);letter-spacing:3px;margin-bottom:18px;}
+  .testi-card p{font-family:var(--serif);font-size:1.28rem;line-height:1.5;color:var(--cream);font-style:italic;}
+  .testi-card .who{margin-top:22px;font-size:0.8rem;color:var(--cream-dim);letter-spacing:0.05em;}
+  .testi-card .who strong{color:var(--gold-soft);font-family:var(--sans);font-weight:500;}
+
+  /* FORM */
+  .form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;}
+  .form-side h2{font-size:clamp(2rem,3.6vw,2.8rem);}
+  .form-side p{color:var(--cream-dim);margin-top:16px;}
+  .form-side .info-line{display:flex;gap:14px;margin-top:26px;font-size:0.92rem;color:var(--cream-dim);}
+  .form-side .info-line .ic{color:var(--gold);}
+  form{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  form .full{grid-column:1/-1;}
+  .field label{display:block;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:9px;}
+  .field input,.field select,.field textarea{
+    width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);
+    color:var(--cream);padding:11px 2px;font-family:var(--sans);font-size:0.96rem;
+    transition:border-color .3s ease;
+  }
+  .field select option{background:var(--ink-elev);color:var(--cream);}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+  .field textarea{resize:vertical;min-height:90px;}
+  form .full .btn{margin-top:12px;width:100%;justify-content:center;}
+
+  /* STUDIO VISIT */
+  .studio-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);}
+  .studio-info{padding:60px;display:flex;flex-direction:column;justify-content:center;gap:22px;}
+  .studio-info .row{display:flex;gap:16px;}
+  .studio-info .row .ic{color:var(--gold);font-family:var(--serif);font-size:1.2rem;}
+  .studio-info h4{font-size:1.1rem;color:var(--cream);margin-bottom:4px;font-family:var(--sans);font-weight:500;letter-spacing:0.02em;}
+  .studio-info p{color:var(--cream-dim);font-size:0.92rem;}
+  .studio-map{min-height:420px;}
+  .studio-map iframe{width:100%;height:100%;border:0;filter:grayscale(0.4) invert(0.92) contrast(0.86);}
+
+  /* INSTAGRAM */
+  .insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+  .insta-grid a{position:relative;aspect-ratio:1/1;overflow:hidden;display:block;}
+  .insta-grid img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease, opacity .5s ease;}
+  .insta-grid a:hover img{transform:scale(1.1);opacity:0.75;}
+  .insta-handle{text-align:center;margin-top:26px;color:var(--gold-soft);font-size:0.9rem;letter-spacing:0.05em;}
+
+  /* FAQ */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{
+    padding:24px 6px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;
+    font-family:var(--serif);font-size:1.2rem;
+  }
+  .faq-q .plus{color:var(--gold);font-size:1.4rem;transition:transform .3s ease;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+  .faq-a p{padding:0 6px 24px;color:var(--cream-dim);max-width:760px;}
+
+  /* TEAM */
+  .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .team-card img{width:100%;height:380px;object-fit:cover;filter:grayscale(0.25);transition:filter .4s ease;}
+  .team-card:hover img{filter:grayscale(0);}
+  .team-card{text-align:center;}
+  .team-card h4{margin-top:20px;font-size:1.3rem;}
+  .team-card .role{color:var(--gold);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;margin-top:4px;}
+  .team-card p{color:var(--cream-dim);font-size:0.88rem;margin-top:12px;}
+
+  /* ADDON */
+  .addon-box{
+    display:grid;grid-template-columns:0.9fr 1.1fr;border:1px solid var(--line);overflow:hidden;
+  }
+  .addon-box img{width:100%;height:100%;object-fit:cover;min-height:360px;}
+  .addon-text{padding:56px;display:flex;flex-direction:column;justify-content:center;}
+  .addon-text .eyebrow{margin-bottom:14px;}
+  .addon-text h2{font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:16px;}
+  .addon-text p{color:var(--cream-dim);margin-bottom:26px;}
+
+  /* SHOP */
+  .shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .shop-card{border:1px solid var(--line);overflow:hidden;}
+  .shop-card img{width:100%;height:300px;object-fit:cover;transition:transform .6s ease;}
+  .shop-card:hover img{transform:scale(1.06);}
+  .shop-card .sc-info{padding:24px;}
+  .shop-card .sc-info .price{color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin-top:6px;}
+
+  /* BTS GALLERY - masonry-ish */
+  .bts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .bts-grid img{width:100%;height:280px;object-fit:cover;transition:transform .6s ease, filter .4s ease;filter:grayscale(0.5);}
+  .bts-grid a:hover img{transform:scale(1.06);filter:grayscale(0);}
+
+  /* PRESS */
+  .press-strip{display:flex;justify-content:space-around;flex-wrap:wrap;gap:40px;align-items:center;}
+  .press-strip .p-name{font-family:var(--serif);font-size:1.5rem;letter-spacing:0.03em;color:var(--cream-dim);opacity:0.75;transition:opacity .3s ease;}
+  .press-strip .p-name:hover{opacity:1;color:var(--gold-soft);}
+
+  /* AVAILABILITY */
+  .avail-box{
+    display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;
+    border:1px solid var(--gold);padding:44px 52px;background:linear-gradient(90deg, rgba(201,162,75,0.08), transparent);
+  }
+  .avail-box h3{font-size:1.6rem;}
+  .avail-box p{color:var(--cream-dim);margin-top:8px;max-width:480px;}
+
+  /* NEWSLETTER */
+  .newsletter{
+    text-align:center;padding:100px 0;background:var(--ink-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .newsletter h2{font-size:clamp(1.9rem,3.4vw,2.6rem);}
+  .newsletter p{color:var(--cream-dim);margin:16px auto 30px;max-width:480px;}
+  .newsletter-form{display:flex;max-width:440px;margin:0 auto;border-bottom:1px solid var(--gold);}
+  .newsletter-form input{flex:1;background:transparent;border:none;color:var(--cream);padding:14px 6px;font-family:var(--sans);}
+  .newsletter-form input:focus{outline:none;}
+  .newsletter-form button{background:none;border:none;color:var(--gold);letter-spacing:0.18em;text-transform:uppercase;font-size:0.75rem;cursor:pointer;padding:0 10px;}
+
+  /* FOOTER */
+  footer{padding:80px 0 30px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:50px;margin-bottom:60px;}
+  .footer-grid h4{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:20px;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid ul li{margin-bottom:12px;color:var(--cream-dim);font-size:0.9rem;}
+  .footer-grid ul li a:hover{color:var(--gold);}
+  .footer-brand p{color:var(--cream-dim);font-size:0.9rem;margin-top:16px;max-width:280px;}
+  .footer-social{display:flex;gap:16px;margin-top:20px;}
+  .footer-social a{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;transition:all .3s ease;}
+  .footer-social a:hover{border-color:var(--gold);color:var(--gold);}
+  .footer-bottom{
+    border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;
+    font-size:0.8rem;color:var(--cream-dim);
+  }
+
+  /* STICKY BOOK NOW */
+  .sticky-book{
+    position:fixed;right:28px;bottom:28px;z-index:900;
+    background:var(--gold);color:var(--ink);padding:16px 26px;border-radius:40px;
+    font-size:0.76rem;letter-spacing:0.16em;text-transform:uppercase;
+    box-shadow:var(--shadow);display:flex;align-items:center;gap:10px;
+    transition:transform .3s ease;
+  }
+  .sticky-book:hover{transform:translateY(-4px);}
+
+  /* LIGHTBOX */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(6,6,8,0.96);z-index:2000;
+    display:none;align-items:center;justify-content:center;padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:90vw;max-height:82vh;object-fit:contain;border:1px solid var(--line);}
+  .lightbox .lb-close{position:absolute;top:30px;right:40px;color:var(--cream);font-size:2rem;cursor:pointer;}
+  .lightbox .lb-caption{position:absolute;bottom:36px;left:0;right:0;text-align:center;color:var(--cream-dim);font-size:0.85rem;letter-spacing:0.1em;}
+  .lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);color:var(--cream);font-size:2rem;cursor:pointer;padding:10px;}
+  .lightbox .lb-prev{left:24px;}
+  .lightbox .lb-next{right:24px;}
+
+  /* BOOKING SUCCESS POPUP */
+  .popup-overlay{
+    position:fixed;inset:0;background:rgba(6,6,8,0.85);z-index:3000;
+    display:none;align-items:center;justify-content:center;
+  }
+  .popup-overlay.open{display:flex;}
+  .popup-box{
+    background:var(--ink-elev);border:1px solid var(--gold);padding:60px 56px;text-align:center;
+    max-width:440px;position:relative;
+    animation:popIn .5s cubic-bezier(.2,.8,.2,1);
+  }
+  @keyframes popIn{from{opacity:0;transform:scale(0.85) translateY(20px);}to{opacity:1;transform:scale(1) translateY(0);}}
+  .popup-box .check{
+    width:70px;height:70px;border-radius:50%;border:1px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 26px;
+    color:var(--gold);font-size:2rem;
+  }
+  .popup-box h3{font-size:1.8rem;}
+  .popup-box p{color:var(--cream-dim);margin-top:14px;}
+  .popup-close{margin-top:30px;}
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar{width:9px;}
+  ::-webkit-scrollbar-track{background:var(--ink);}
+  ::-webkit-scrollbar-thumb{background:var(--ink-elev);border:1px solid var(--gold);}
+
+  /* RESPONSIVE */
+  @media(max-width:1024px){
+    .portfolio-grid{grid-template-columns:repeat(2,1fr);}
+    .pricing-grid,.testi-grid,.team-grid,.shop-grid{grid-template-columns:1fr 1fr;}
+    .split,.form-wrap,.studio-grid,.addon-box{grid-template-columns:1fr;}
+    .split img{height:380px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .bts-grid{grid-template-columns:repeat(2,1fr);}
+    .insta-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(max-width:900px){
+    nav.desktop-nav,.nav-cta .btn{display:none;}
+    .burger{display:flex;}
+  }
+  @media(max-width:640px){
+    .section{padding:80px 0;}
+    .portfolio-grid,.pricing-grid,.testi-grid,.team-grid,.shop-grid,.stat-row{grid-template-columns:1fr;}
+    form{grid-template-columns:1fr;}
+    .field.half{grid-column:1/-1;}
+    .studio-info{padding:36px 26px;}
+    .addon-text{padding:36px 26px;}
+    .footer-grid{grid-template-columns:1fr;gap:34px;}
+    .insta-grid{grid-template-columns:repeat(3,1fr);}
+    .avail-box{padding:32px 26px;}
+    .press-strip{gap:24px;}
+    .sticky-book span{display:none;}
+    .sticky-book{padding:16px;border-radius:50%;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a href="#home" class="logo">
+      <span class="logo-mark">T&amp;F</span>
+      <span class="logo-text">Thistle <em>&amp;</em> Frame</span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#pricing">Packages</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#booking" class="btn"><span>Book a Session</span></a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#portfolio">Portfolio</a>
+  <a href="#pricing">Packages</a>
+  <a href="#about">About</a>
+  <a href="#testimonials">Stories</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+  <a href="#booking" class="btn"><span>Book a Session</span></a>
+</div>
+
+<!-- 1. HERO -->
+<section class="hero" id="home">
+  <div class="hero-slide active" style="background-image:url('https://picsum.photos/seed/edinburghwedhero1/1920/1080')"></div>
+  <div class="hero-slide" style="background-image:url('https://picsum.photos/seed/edinburghwedhero2/1920/1080')"></div>
+  <div class="hero-slide" style="background-image:url('https://picsum.photos/seed/edinburghwedhero3/1920/1080')"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="eyebrow">Edinburgh &amp; The Lothians</span>
+    <h1>Timeless stories, <em>told</em> in light</h1>
+    <p>Cinematic wedding, portrait &amp; corporate event photography — quietly luxurious, always true to the moment.</p>
+    <a href="#booking" class="btn btn-solid"><span>Book a Session</span></a>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <span class="active" data-i="0"></span><span data-i="1"></span><span data-i="2"></span>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<!-- 2. PORTFOLIO -->
+<section class="section" id="portfolio">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Selected Work</span>
+      <h2>The Portfolio</h2>
+      <div class="divider"></div>
+      <p>A collection of weddings, portraits and corporate events across Edinburgh and the Lothians.</p>
+    </div>
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="weddings">Weddings</button>
+      <button class="filter-btn" data-filter="portraits">Portraits</button>
+      <button class="filter-btn" data-filter="corporate">Corporate</button>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid">
+      <!-- tiles injected by data below -->
+    </div>
+  </div>
+</section>
+
+<!-- 3. PRICING -->
+<section class="section section-tight" id="pricing" style="background:var(--ink-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Investment</span>
+      <h2>Packages &amp; Pricing</h2>
+      <div class="divider"></div>
+      <p>Every collection includes full-resolution digital images, a private online gallery, and print rights.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>The Elopement</h3>
+        <div class="price">£950</div>
+        <p class="desc">Intimate ceremonies &amp; small gatherings</p>
+        <ul>
+          <li>4 hours of coverage</li>
+          <li>One photographer</li>
+          <li>250+ edited images</li>
+          <li>Online private gallery</li>
+          <li>USB keepsake box</li>
+        </ul>
+        <a href="#booking" class="btn"><span>Enquire</span></a>
+      </div>
+      <div class="price-card featured reveal">
+        <span class="ribbon">Most Booked</span>
+        <h3>The Full Day</h3>
+        <div class="price">£2,150</div>
+        <p class="desc">The complete wedding day, start to last dance</p>
+        <ul>
+          <li>10 hours of coverage</li>
+          <li>Two photographers</li>
+          <li>600+ edited images</li>
+          <li>Engagement session included</li>
+          <li>Fine-art 30-page album</li>
+          <li>Online private gallery</li>
+        </ul>
+        <a href="#booking" class="btn btn-solid"><span>Enquire</span></a>
+      </div>
+      <div class="price-card reveal">
+        <h3>Corporate &amp; Events</h3>
+        <div class="price">From £650</div>
+        <p class="desc">Conferences, launches &amp; celebrations</p>
+        <ul>
+          <li>Half or full day coverage</li>
+          <li>Same-week turnaround</li>
+          <li>Commercial usage licence</li>
+          <li>Branded gallery delivery</li>
+          <li>On-site editing available</li>
+        </ul>
+        <a href="#booking" class="btn"><span>Enquire</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="split">
+      <img class="reveal" src="https://picsum.photos/seed/photographerportraitcamera/900/1100" alt="Portrait of the lead photographer holding a camera">
+      <div class="reveal">
+        <span class="eyebrow">The Photographer</span>
+        <h2>Isla Ferguson</h2>
+        <p>I started Thistle &amp; Frame in a spare room in Leith, with one camera and a conviction that wedding photography should feel less like a performance and more like a memory being kept honestly.</p>
+        <p>Twelve years and several hundred weddings later, that conviction hasn't changed — only the light I know how to find, and the quiet moments I know how to wait for.</p>
+        <p>Trained in editorial portraiture before turning to weddings, I bring a documentary eye to every ceremony and a painter's patience to every portrait.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="num" data-count="12">0</div><div class="label">Years Shooting</div></div>
+          <div class="stat"><div class="num" data-count="480">0</div><div class="label">Weddings Told</div></div>
+          <div class="stat"><div class="num" data-count="98">0</div><div class="label">% Referral Rate</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. AWARDS -->
+<section class="section-tight reveal">
+  <div class="container">
+    <div class="strip">
+      <div class="item"><strong>2025</strong>Scottish Wedding Awards — Photographer of the Year</div>
+      <div class="item"><strong>2024</strong>Featured, Rock My Wedding Scotland</div>
+      <div class="item"><strong>2023</strong>Vogue Weddings — Editorial Contributor</div>
+      <div class="item"><strong>2022</strong>Fearless Photographers — Top 10 Collection</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. TESTIMONIALS -->
+<section class="section" id="testimonials" style="background:var(--ink-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Kind Words</span>
+      <h2>From Our Couples &amp; Clients</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Isla disappeared into the day and somehow captured every single feeling we had. We cried looking at the gallery — twice."</p>
+        <div class="who"><strong>Fiona &amp; Callum</strong><br>The Signet Library, Edinburgh — June 2025</div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Understated, elegant, completely unobtrusive. Our corporate gala photos looked like something out of a magazine."</p>
+        <div class="who"><strong>Bruntsfield &amp; Co.</strong><br>Prestonfield House — March 2025</div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Worth every penny of the full day package. The engagement shoot alone made us feel like we'd already found the right person for the job."</p>
+        <div class="who"><strong>Priya &amp; Alexander</strong><br>Dalhousie Castle — September 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. TEAM -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Behind the Lens</span>
+      <h2>Second Shooters &amp; Team</h2>
+      <div class="divider"></div>
+      <p>Full day packages are shot by two photographers, so nothing — and no one — is missed.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <img src="https://picsum.photos/seed/teamleadphotographer/700/900" alt="Isla Ferguson, lead photographer">
+        <h4>Isla Ferguson</h4>
+        <div class="role">Lead Photographer &amp; Founder</div>
+        <p>Documentary storytelling with an editorial finish.</p>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://picsum.photos/seed/teamsecondshooter/700/900" alt="Second shooter photographer">
+        <h4>Rory Maclean</h4>
+        <div class="role">Second Shooter</div>
+        <p>Candid moments and the angles the lead can't reach.</p>
+      </div>
+      <div class="team-card reveal">
+        <img src="https://picsum.photos/seed/teamstudiomanager/700/900" alt="Studio and client manager">
+        <h4>Eve Sinclair</h4>
+        <div class="role">Studio &amp; Client Manager</div>
+        <p>Your first point of contact from enquiry to album delivery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. ENGAGEMENT ADD-ON -->
+<section class="section section-tight">
+  <div class="container">
+    <div class="addon-box reveal">
+      <img src="https://picsum.photos/seed/engagementsessionpark/900/900" alt="Engaged couple walking together at golden hour">
+      <div class="addon-text">
+        <span class="eyebrow">Add-On</span>
+        <h2>The Engagement Session</h2>
+        <p>A relaxed hour together before the big day — ideal for save-the-dates, and the perfect way to get comfortable in front of the camera before your wedding.</p>
+        <p style="color:var(--gold-soft);font-family:var(--serif);font-size:1.3rem;">From £180 — included free with The Full Day</p>
+        <a href="#booking" class="btn" style="width:fit-content;"><span>Add to My Booking</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. BOOKING FORM -->
+<section class="section" id="booking" style="background:var(--ink-soft);">
+  <div class="container">
+    <div class="form-wrap">
+      <div class="form-side reveal">
+        <span class="eyebrow">Let's Talk</span>
+        <h2>Book a Session</h2>
+        <p>Tell us a little about your day and we'll be in touch within 48 hours with availability and next steps.</p>
+        <div class="info-line"><span class="ic">✉</span> bookings@thistleandframe.co.uk</div>
+        <div class="info-line"><span class="ic">☎</span> +44 131 452 0176</div>
+        <div class="info-line"><span class="ic">◈</span> Studio visits by appointment, Edinburgh EH3</div>
+      </div>
+      <form id="bookingForm" class="reveal">
+        <div class="field"><label>Full Name</label><input type="text" required placeholder="Jane Smith"></div>
+        <div class="field"><label>Email</label><input type="email" required placeholder="jane@email.com"></div>
+        <div class="field"><label>Phone</label><input type="tel" required placeholder="+44 7XXX XXXXXX"></div>
+        <div class="field"><label>Event Date</label><input type="date" required></div>
+        <div class="field"><label>Event Type</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>Wedding</option>
+            <option>Engagement Session</option>
+            <option>Portrait Session</option>
+            <option>Corporate Event</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Package</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>The Elopement — £950</option>
+            <option>The Full Day — £2,150</option>
+            <option>Corporate &amp; Events — From £650</option>
+            <option>Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="field full"><label>Tell Us About Your Day</label><textarea placeholder="Venue, guest count, vision..."></textarea></div>
+        <div class="full"><button type="submit" class="btn btn-solid"><span>Send Enquiry</span></button></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 8. VISIT THE STUDIO + 10. MAP -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Come Say Hello</span>
+      <h2>Visit the Studio</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="studio-grid reveal">
+      <div class="studio-info">
+        <div class="row"><span class="ic">◈</span><div><h4>Address</h4><p>14 Dundas Street, New Town, Edinburgh, EH3 6QG</p></div></div>
+        <div class="row"><span class="ic">☎</span><div><h4>Telephone</h4><p>+44 131 452 0176</p></div></div>
+        <div class="row"><span class="ic">✉</span><div><h4>Email</h4><p>bookings@thistleandframe.co.uk</p></div></div>
+        <div class="row"><span class="ic">◷</span><div><h4>Studio Hours</h4><p>Tuesday – Saturday, 10am – 6pm<br>Sundays &amp; Mondays by appointment</p></div></div>
+      </div>
+      <div class="studio-map">
+        <iframe loading="lazy" src="https://www.google.com/maps?q=Dundas+Street+Edinburgh&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. INSTAGRAM -->
+<section class="section section-tight" style="background:var(--ink-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Follow Along</span>
+      <h2>@thistleandframe</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="insta-grid reveal">
+      <a href="#" target="_blank"><img src="https://picsum.photos/seed/instacastlewedding/500/500" alt="Castle wedding moment"></a>
+      <a href="#" target="_blank"><img src="https://picsum.photos/seed/instatartandetail/500/500" alt="Tartan wedding detail"></a>
+      <a href="#" target="_blank"><img src="https://picsum.photos/seed/instahighlandportrait/500/500" alt="Highland couple portrait"></a>
+      <a href="#" target="_blank"><img src="https://picsum.photos/seed/instareceptiondance/500/500" alt="First dance at reception"></a>
+      <a href="#" target="_blank"><img src="https://picsum.photos/seed/instacorporatehandshake/500/500" alt="Corporate event handshake"></a>
+      <a href="#" target="_blank"><img src="https://picsum.photos/seed/instaengagementwalk/500/500" alt="Engagement session walk"></a>
+    </div>
+    <p class="insta-handle">Tag @thistleandframe to be featured</p>
+  </div>
+</section>
+
+<!-- 15. BEHIND THE SCENES -->
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Off Camera</span>
+      <h2>Behind the Scenes</h2>
+      <div class="divider"></div>
+      <p>A glimpse at the quiet work behind every finished gallery.</p>
+    </div>
+    <div class="bts-grid">
+      <a href="#" class="lb-trigger" data-full="https://picsum.photos/seed/btscamerasetupwide/1600/1000" data-caption="Setting up before the ceremony"><img src="https://picsum.photos/seed/btscamerasetupwide/700/700" alt="Camera setup before ceremony"></a>
+      <a href="#" class="lb-trigger" data-full="https://picsum.photos/seed/btsdirectingcouplewide/1600/1000" data-caption="Directing a couple's portrait session"><img src="https://picsum.photos/seed/btsdirectingcouplewide/700/700" alt="Directing a couple portrait"></a>
+      <a href="#" class="lb-trigger" data-full="https://picsum.photos/seed/btseditinglaptopwide/1600/1000" data-caption="Editing the gallery back at studio"><img src="https://picsum.photos/seed/btseditinglaptopwide/700/700" alt="Editing photos on laptop"></a>
+      <a href="#" class="lb-trigger" data-full="https://picsum.photos/seed/btslightingrigwide/1600/1000" data-caption="Setting the lighting for a reception"><img src="https://picsum.photos/seed/btslightingrigwide/700/700" alt="Lighting rig setup at reception"></a>
+    </div>
+  </div>
+</section>
+
+<!-- 14. SHOP -->
+<section class="section section-tight" style="background:var(--ink-soft);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Take It Home</span>
+      <h2>Prints &amp; Albums</h2>
+      <div class="divider"></div>
+      <p>Fine-art prints and hand-bound albums, made to be kept for generations.</p>
+    </div>
+    <div class="shop-grid">
+      <div class="shop-card reveal">
+        <img src="https://picsum.photos/seed/albumleatherbook/700/600" alt="Leather-bound fine art wedding album">
+        <div class="sc-info"><h4>Heirloom Album</h4><p style="color:var(--cream-dim);font-size:0.88rem;">Hand-bound, Italian leather</p><div class="price">From £420</div></div>
+      </div>
+      <div class="shop-card reveal">
+        <img src="https://picsum.photos/seed/finelartframedprint/700/600" alt="Framed fine art wedding print">
+        <div class="sc-info"><h4>Framed Fine-Art Print</h4><p style="color:var(--cream-dim);font-size:0.88rem;">Museum-grade matte finish</p><div class="price">From £95</div></div>
+      </div>
+      <div class="shop-card reveal">
+        <img src="https://picsum.photos/seed/parentprintbox/700/600" alt="Wooden keepsake print box for parents">
+        <div class="sc-info"><h4>Parent Print Box</h4><p style="color:var(--cream-dim);font-size:0.88rem;">A curated set for family</p><div class="price">From £140</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 16. PRESS -->
+<section class="section-tight reveal">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:36px;">
+      <span class="eyebrow">As Seen In</span>
+    </div>
+    <div class="press-strip">
+      <div class="p-name">Vogue Weddings</div>
+      <div class="p-name">Rock My Wedding</div>
+      <div class="p-name">The Scotsman</div>
+      <div class="p-name">Scottish Field</div>
+      <div class="p-name">Brides Scotland</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FAQ -->
+<section class="section" id="faq" style="background:var(--ink-soft);">
+  <div class="container" style="max-width:900px;">
+    <div class="section-head reveal">
+      <span class="eyebrow">Good Questions</span>
+      <h2>Frequently Asked</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q"><span>How far in advance should we book?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Most couples book 9–14 months ahead, especially for peak season (May–September). Popular Saturdays in Edinburgh can go a year or more in advance.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Do you travel outside Edinburgh?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Yes — we regularly shoot across the Lothians, the Borders, and the Highlands. Travel within 25 miles of Edinburgh is included; further afield is quoted separately.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>How long until we receive our gallery?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Wedding galleries are delivered within 6–8 weeks. Corporate events are typically turned around within 5 working days.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Do you offer payment plans?</span><span class="plus">+</span></div>
+        <div class="faq-a"><p>Absolutely. A 25% deposit secures your date, with the balance split into interest-free instalments due before the event.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 17. AVAILABILITY -->
+<section class="section-tight">
+  <div class="container">
+    <div class="avail-box reveal">
+      <div>
+        <span class="eyebrow">Availability</span>
+        <h3 style="margin-top:10px;">2027 dates are now open for enquiry</h3>
+        <p>2026 has limited Saturdays remaining. Get in touch to check your date before committing to a venue.</p>
+      </div>
+      <a href="#booking" class="btn btn-solid"><span>Check My Date</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 18. NEWSLETTER -->
+<section class="newsletter">
+  <div class="container reveal">
+    <span class="eyebrow">Stay In Touch</span>
+    <h2 style="margin-top:12px;">The Thistle &amp; Frame Journal</h2>
+    <p>Real weddings, seasonal inspiration, and the occasional Edinburgh venue guide — straight to your inbox.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- 19. FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><span class="logo-mark">T&amp;F</span><span class="logo-text">Thistle <em>&amp;</em> Frame</span></a>
+        <p>Cinematic wedding, portrait and corporate photography, based in Edinburgh and shooting across the Lothians.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Pinterest">PI</a>
+          <a href="#" aria-label="Facebook">FB</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Packages</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Stories</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Visit Us</a></li>
+          <li><a href="#booking">Book a Session</a></li>
+          <li><a href="#">Client Login</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>14 Dundas Street, Edinburgh EH3 6QG</li>
+          <li>+44 131 452 0176</li>
+          <li>bookings@thistleandframe.co.uk</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Thistle &amp; Frame Photography. All rights reserved.</span>
+      <span>Edinburgh, Scotland</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#booking" class="sticky-book"><span>Book Now</span> ✎</a>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="lb-close" id="lbClose">&times;</span>
+  <span class="lb-nav lb-prev" id="lbPrev">&#10094;</span>
+  <img id="lbImg" src="" alt="Enlarged view">
+  <span class="lb-nav lb-next" id="lbNext">&#10095;</span>
+  <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<!-- BOOKING SUCCESS POPUP -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <div class="check">✓</div>
+    <h3>Enquiry Sent</h3>
+    <p>Thank you — your enquiry has landed safely in our inbox. We'll be in touch within 48 hours to talk through your date and vision.</p>
+    <button class="btn btn-solid popup-close" id="popupClose"><span>Close</span></button>
+  </div>
+</div>
+
+<script>
+/* ---------- PORTFOLIO DATA ---------- */
+const portfolioItems = [
+  {cat:"weddings", seed:"weddingceremonykissarch", title:"The First Kiss", tag:"Wedding · Ceremony"},
+  {cat:"weddings", seed:"weddingringsdetailmacro", title:"Two Rings", tag:"Wedding · Detail"},
+  {cat:"weddings", seed:"weddingreceptiontoastspeech", title:"The Toast", tag:"Wedding · Reception"},
+  {cat:"portraits", seed:"portraiteditorialwomanstudio", title:"Editorial Study", tag:"Portrait · Studio"},
+  {cat:"portraits", seed:"portraitcouplegoldenhourfield", title:"Golden Hour", tag:"Portrait · Couple"},
+  {cat:"weddings", seed:"weddingbrideportraitveil", title:"The Bride", tag:"Wedding · Portrait"},
+  {cat:"corporate", seed:"corporateconferencestagelights", title:"Keynote Stage", tag:"Corporate · Conference"},
+  {cat:"corporate", seed:"corporateteamphotogroupoffice", title:"The Team", tag:"Corporate · Team"},
+  {cat:"portraits", seed:"portraitfamilyoutdoorpark", title:"Family, Outdoors", tag:"Portrait · Family"},
+  {cat:"corporate", seed:"corporateawardsgaladinner", title:"Awards Gala", tag:"Corporate · Gala"},
+  {cat:"weddings", seed:"weddingdancefloorfirstdance", title:"First Dance", tag:"Wedding · Reception"},
+  {cat:"portraits", seed:"portraitmanurbanstreetlight", title:"City Light", tag:"Portrait · Editorial"},
+];
+const grid = document.getElementById('portfolioGrid');
+portfolioItems.forEach((it,i)=>{
+  const div = document.createElement('div');
+  div.className = 'p-tile reveal';
+  div.dataset.cat = it.cat;
+  div.innerHTML = `<img class="lb-trigger" data-full="https://picsum.photos/seed/${it.seed}/1400/1750" data-caption="${it.title}" src="https://picsum.photos/seed/${it.seed}/700/875" alt="${it.title} — ${it.tag}">
+    <div class="tile-info"><span class="tag">${it.tag}</span><h4>${it.title}</h4></div>`;
+  grid.appendChild(div);
+});
+
+/* ---------- FILTER ---------- */
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.p-tile').forEach(tile=>{
+      tile.classList.toggle('hide', f!=="all" && tile.dataset.cat!==f);
+    });
+  });
+});
+
+/* ---------- NAV SOLID ON SCROLL ---------- */
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', ()=>{
+  header.classList.toggle('solid', window.scrollY > 60);
+});
+
+/* ---------- MOBILE MENU ---------- */
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', ()=>{
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+  burger.classList.remove('open'); mobileMenu.classList.remove('open');
+}));
+
+/* ---------- HERO SLIDESHOW ---------- */
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dots span');
+let heroIndex = 0;
+function showSlide(i){
+  slides.forEach(s=>s.classList.remove('active'));
+  dots.forEach(d=>d.classList.remove('active'));
+  slides[i].classList.add('active');
+  dots[i].classList.add('active');
+  heroIndex = i;
+}
+dots.forEach(d=>d.addEventListener('click', ()=>showSlide(parseInt(d.dataset.i))));
+setInterval(()=>showSlide((heroIndex+1)%slides.length), 5500);
+
+/* ---------- SCROLL REVEAL ---------- */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+/* ---------- STAT COUNTERS ---------- */
+const stats = document.querySelectorAll('.num');
+const statIO = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el = e.target;
+      const target = parseInt(el.dataset.count);
+      let cur = 0;
+      const step = Math.max(1, Math.round(target/60));
+      const t = setInterval(()=>{
+        cur += step;
+        if(cur >= target){ cur = target; clearInterval(t); }
+        el.textContent = cur;
+      }, 25);
+      statIO.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+stats.forEach(s=>statIO.observe(s));
+
+/* ---------- FAQ ACCORDION ---------- */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click', ()=>{
+    const item = q.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(fi=>{
+      fi.classList.remove('open');
+      fi.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!wasOpen){
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ---------- LIGHTBOX ---------- */
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCaption = document.getElementById('lbCaption');
+let lbList = [];
+let lbIndex = 0;
+
+function refreshLbList(){
+  lbList = Array.from(document.querySelectorAll('.lb-trigger')).filter(el=>{
+    const tile = el.closest('.p-tile');
+    return !tile || !tile.classList.contains('hide');
+  });
+}
+function openLightbox(el){
+  refreshLbList();
+  lbIndex = lbList.indexOf(el);
+  updateLightbox();
+  lightbox.classList.add('open');
+}
+function updateLightbox(){
+  const el = lbList[lbIndex];
+  lbImg.src = el.dataset.full;
+  lbCaption.textContent = el.dataset.caption || '';
+}
+document.addEventListener('click', (e)=>{
+  const trigger = e.target.closest('.lb-trigger');
+  if(trigger){ e.preventDefault(); openLightbox(trigger); }
+});
+document.getElementById('lbClose').addEventListener('click', ()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) lightbox.classList.remove('open'); });
+document.getElementById('lbNext').addEventListener('click', ()=>{ lbIndex = (lbIndex+1)%lbList.length; updateLightbox(); });
+document.getElementById('lbPrev').addEventListener('click', ()=>{ lbIndex = (lbIndex-1+lbList.length)%lbList.length; updateLightbox(); });
+document.addEventListener('keydown', (e)=>{
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') lightbox.classList.remove('open');
+  if(e.key === 'ArrowRight') document.getElementById('lbNext').click();
+  if(e.key === 'ArrowLeft') document.getElementById('lbPrev').click();
+});
+
+/* ---------- BOOKING FORM POPUP ---------- */
+const bookingForm = document.getElementById('bookingForm');
+const popupOverlay = document.getElementById('popupOverlay');
+bookingForm.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  popupOverlay.classList.add('open');
+  bookingForm.reset();
+});
+document.getElementById('popupClose').addEventListener('click', ()=>popupOverlay.classList.remove('open'));
+popupOverlay.addEventListener('click', (e)=>{ if(e.target === popupOverlay) popupOverlay.classList.remove('open'); });
+
+/* ---------- NEWSLETTER ---------- */
+const newsletterForm = document.getElementById('newsletterForm');
+newsletterForm.addEventListener('submit', (e)=>{
+  e.preventDefault();
+  const btn = newsletterForm.querySelector('button');
+  const original = btn.textContent;
+  btn.textContent = 'Subscribed ✓';
+  newsletterForm.querySelector('input').value = '';
+  setTimeout(()=>{ btn.textContent = original; }, 2600);
+});
+</script>
+</body>
+</html>
